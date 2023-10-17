@@ -8,4 +8,5 @@ import com.varabyte.kobweb.core.Page
 fun HomePage() {
     // TODO: Add content here
     println("Hello World!")
+    println("Index Page")
 }
