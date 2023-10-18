@@ -1,6 +1,7 @@
 package com.deepshooter.composelandingpage.pages
 
 import androidx.compose.runtime.*
+import com.deepshooter.composelandingpage.section.MainSection
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -18,6 +19,7 @@ fun HomePage() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
+        MainSection()
 
     }
 
