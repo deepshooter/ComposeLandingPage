@@ -1,6 +1,7 @@
 package com.deepshooter.composelandingpage.pages
 
 import androidx.compose.runtime.*
+import com.deepshooter.composelandingpage.section.AboutSection
 import com.deepshooter.composelandingpage.section.MainSection
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ fun HomePage() {
     ) {
 
         MainSection()
+        AboutSection()
 
     }
 
