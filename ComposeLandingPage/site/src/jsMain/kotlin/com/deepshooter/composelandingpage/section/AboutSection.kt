@@ -1,7 +1,7 @@
 package com.deepshooter.composelandingpage.section
 
 import androidx.compose.runtime.Composable
-import com.deepshooter.composelandingpage.components.SkillBar
+import com.deepshooter.composelandingpage.components.SectionTitle
 import com.deepshooter.composelandingpage.models.Section
 import com.deepshooter.composelandingpage.util.Constants
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -24,8 +24,9 @@ fun AboutSection() {
         contentAlignment = Alignment.Center
     ) {
 
-        SkillBar(
-            name = "Creative"
+        SectionTitle(
+            section = Section.About,
+            alignment = Alignment.End
         )
 
     }
