@@ -2,11 +2,13 @@ package com.deepshooter.composelandingpage.section
 
 import androidx.compose.runtime.Composable
 import com.deepshooter.composelandingpage.components.Header
+import com.deepshooter.composelandingpage.components.SocialBar
 import com.deepshooter.composelandingpage.models.Section
 import com.deepshooter.composelandingpage.util.Constants.SECTION_WIDTH
 import com.deepshooter.composelandingpage.util.Res
 import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
@@ -28,7 +30,7 @@ fun MainSection() {
     ) {
 
         MainBackground()
-        Header()
+        MainContent()
 
     }
 
@@ -43,5 +45,18 @@ fun MainBackground() {
         src = Res.Image.background,
         desc = "Background Image"
     )
+
+}
+
+@Composable
+fun MainContent() {
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Header()
+        SocialBar()
+    }
 
 }
