@@ -3,6 +3,7 @@ package com.deepshooter.composelandingpage.components
 import androidx.compose.runtime.Composable
 import com.deepshooter.composelandingpage.models.Theme
 import com.deepshooter.composelandingpage.util.Constants.FONT_FAMILY
+import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -19,8 +20,10 @@ import org.jetbrains.compose.web.dom.Text
 @Composable
 fun SkillBar(
     name: String,
+    index: Int,
     progressBarHeight: CSSSizeValue<CSSUnit.px> = 5.px,
-    percentage: CSSSizeValue<CSSUnit.percent> = 50.percent
+    percentage: CSSSizeValue<CSSUnit.percent> = 50.percent,
+    animatedPercentage: Int
 ) {
 
     Column(
@@ -58,7 +61,7 @@ fun SkillBar(
                     .color(Theme.Secondary.rgb)
                     .toAttrs()
             ) {
-                Text("${percentage.value}${percentage.unit}")
+                Text("$animatedPercentage%")
             }
         }
 
@@ -74,6 +77,13 @@ fun SkillBar(
                     .fillMaxWidth(percentage)
                     .height(progressBarHeight)
                     .backgroundColor(Theme.Primary.rgb)
+                    .transition(
+                        CSSTransition(
+                            property = "width",
+                            duration = 1000.ms,
+                            delay = 100.ms * index
+                        )
+                    )
             )
         }
     }
