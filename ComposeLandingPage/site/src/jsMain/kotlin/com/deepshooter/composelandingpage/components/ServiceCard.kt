@@ -3,6 +3,7 @@ package com.deepshooter.composelandingpage.components
 import androidx.compose.runtime.Composable
 import com.deepshooter.composelandingpage.models.Service
 import com.deepshooter.composelandingpage.models.Theme
+import com.deepshooter.composelandingpage.styles.ServiceCardStyle
 import com.deepshooter.composelandingpage.util.Constants.FONT_FAMILY
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -11,6 +12,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
+import com.varabyte.kobweb.silk.components.style.toModifier
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
@@ -19,15 +21,10 @@ import org.jetbrains.compose.web.dom.Text
 @Composable
 fun ServiceCard(service: Service) {
     Column(
-        modifier = Modifier
+        modifier = ServiceCardStyle.toModifier()
             .maxWidth(300.px)
             .margin(all = 20.px)
             .padding(all = 20.px)
-            .border(
-                width = 2.px,
-                style = LineStyle.Solid,
-                color = Theme.LighterGray.rgb
-            )
     ) {
         Box(
             modifier = Modifier
