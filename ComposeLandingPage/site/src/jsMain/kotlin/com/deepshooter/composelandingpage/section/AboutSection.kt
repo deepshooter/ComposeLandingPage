@@ -111,7 +111,7 @@ fun AboutMe() {
             Skill.entries.forEach { skill ->
                 scope.launch {
                     animateNumbers(
-                        percent = skill.percentage.value.toInt(),
+                        number = skill.percentage.value.toInt(),
                         onUpdate = {
                             animatedPercentage[skill.ordinal] = it
                         }
