@@ -1,11 +1,12 @@
 package com.deepshooter.composelandingpage.section
 
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import com.deepshooter.composelandingpage.components.ExperienceCard
 import com.deepshooter.composelandingpage.components.SectionTitle
 import com.deepshooter.composelandingpage.models.Experience
 import com.deepshooter.composelandingpage.models.Section
 import com.deepshooter.composelandingpage.util.Constants.SECTION_WIDTH
+import com.deepshooter.composelandingpage.util.ObserveViewportEntered
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -35,6 +36,15 @@ fun ExperienceSection() {
 fun ExperienceContent() {
 
     val breakpoint = rememberBreakpoint()
+    var animatedMargin by remember { mutableStateOf(200.px) }
+
+    ObserveViewportEntered(
+        sectionId = Section.Experience.id,
+        distanceFromTop = 700.0,
+        onViewportEntered = {
+            animatedMargin = 50.px
+        }
+    )
 
     Column(
         modifier = Modifier
@@ -58,7 +68,8 @@ fun ExperienceContent() {
             ExperienceCard(
                 breakpoint = breakpoint,
                 active = experience == Experience.First,
-                experience = experience
+                experience = experience,
+                animatedMargin = animatedMargin
             )
         }
 
