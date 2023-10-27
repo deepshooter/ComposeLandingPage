@@ -22,7 +22,12 @@ import org.jetbrains.compose.web.dom.*
 fun ContactForm(breakpoint: Breakpoint) {
 
     Form(
-        action = ""
+        action = "https://formspree.io/f/mzbloyvz",
+        attrs = Modifier
+            .attrsModifier {
+                attr("method", "POST")
+            }
+            .toAttrs()
     ) {
         Label(
             attrs = Modifier
