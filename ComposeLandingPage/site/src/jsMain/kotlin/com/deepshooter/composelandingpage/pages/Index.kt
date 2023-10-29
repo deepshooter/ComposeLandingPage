@@ -1,8 +1,10 @@
 package com.deepshooter.composelandingpage.pages
 
 import androidx.compose.runtime.*
+import com.deepshooter.composelandingpage.components.BackToTopButton
 import com.deepshooter.composelandingpage.section.*
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
+import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -13,22 +15,25 @@ import com.varabyte.kobweb.core.Page
 @Composable
 fun HomePage() {
 
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
 
-        MainSection()
-        AboutSection()
-        ServiceSection()
-        PortfolioSection()
-        AchievementsSection()
-        TestimonialSection()
-        ExperienceSection()
-        ContactSection()
-        FooterSection()
+            MainSection()
+            AboutSection()
+            ServiceSection()
+            PortfolioSection()
+            AchievementsSection()
+            TestimonialSection()
+            ExperienceSection()
+            ContactSection()
+            FooterSection()
+        }
 
+        BackToTopButton()
     }
 
 }
