@@ -2,6 +2,7 @@ package com.deepshooter.composelandingpage.pages
 
 import androidx.compose.runtime.*
 import com.deepshooter.composelandingpage.components.BackToTopButton
+import com.deepshooter.composelandingpage.components.OverflowMenu
 import com.deepshooter.composelandingpage.section.*
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -15,6 +16,9 @@ import com.varabyte.kobweb.core.Page
 @Composable
 fun HomePage() {
 
+    var menuOpened by remember { mutableStateOf(false) }
+
+
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -22,7 +26,7 @@ fun HomePage() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            MainSection()
+            MainSection(onMenuClicked = { menuOpened = true })
             AboutSection()
             ServiceSection()
             PortfolioSection()
@@ -34,6 +38,9 @@ fun HomePage() {
         }
 
         BackToTopButton()
+        if (menuOpened) {
+            OverflowMenu(onMenuClosed = { menuOpened = false })
+        }
     }
 
 }
